@@ -16,12 +16,9 @@ public class PageWordStat {
         WebPage page = new WebPage();
         String sPage = page.loadPage();
 
-        System.out.println(sPage);
         // Инициализируем разделители и получаем их в виде строки
         SeparatorsString separators = new SeparatorsString();
         String sSeparators = separators.getSeparators();
-
-        System.out.println(sSeparators);
 
         Map<String, Word> countMap = new HashMap<>();
 
