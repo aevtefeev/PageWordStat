@@ -12,13 +12,20 @@ import java.util.TreeSet;
 
 public class PageWordStat {
     public static void main(String[] args) {
-        // Инициализируем страницу и получаем из неё текст
+        org.slf4j.Logger logger = org.slf4j.LoggerFactory.getLogger(PageWordStat.class);
+
+         // Инициализируем страницу и получаем из неё текст
         WebPage page = new WebPage();
         String sPage = page.loadPage();
-
+        logger.info("text: "+sPage);
+        if (sPage.equals("")) {
+            System.out.println("Вы ввели неверный адрес");
+            System.exit(-1);
+        }
         // Инициализируем разделители и получаем их в виде строки
         SeparatorsString separators = new SeparatorsString();
         String sSeparators = separators.getSeparators();
+        logger.info("separators: "+sSeparators);
 
         Map<String, Word> countMap = new HashMap<>();
 
